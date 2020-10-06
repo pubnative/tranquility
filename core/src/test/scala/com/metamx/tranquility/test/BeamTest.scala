@@ -32,10 +32,10 @@ import com.twitter.util.Return
 import com.twitter.util.Throw
 import org.scalatest.BeforeAndAfter
 import org.scalatest.FunSuite
-import org.scalatest.ShouldMatchers
+import org.scalatest.Matchers
 import scala.collection.immutable.BitSet
 
-class BeamTest extends FunSuite with BeforeAndAfter with ShouldMatchers with Logging
+class BeamTest extends FunSuite with BeforeAndAfter with Matchers with Logging
 {
   val Key  = "beep"
   val beam = FailableBeam.forDicts(new MemoryBeam[Dict](Key, new DefaultJsonWriter(Jackson.newObjectMapper())))

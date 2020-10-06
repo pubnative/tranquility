@@ -1,4 +1,4 @@
-scalaVersion in ThisBuild := "2.11.8"
+scalaVersion in ThisBuild := "2.12.10"
 
 // Disable parallel execution, the various Druid oriented tests need to claim ports
 parallelExecution in ThisBuild := false
@@ -10,8 +10,8 @@ concurrentRestrictions in Global += Tags.limitAll(1)
 
 val jacksonOneVersion = "1.9.13"
 // See https://github.com/druid-io/druid/pull/1669, https://github.com/druid-io/tranquility/pull/81 before upgrading Jackson
-val jacksonTwoVersion = "2.4.6"
-val jacksonTwoModuleScalaVersion = "2.4.5"
+val jacksonTwoVersion = "2.8.4"
+val jacksonTwoModuleScalaVersion = "2.8.4"
 val druidVersion = "0.9.2"
 val curatorVersion = "2.12.0"
 val guiceVersion = "4.0"
@@ -139,7 +139,7 @@ val kafkaDependencies = Seq(
 ) ++ loggingDependencies
 
 val coreTestDependencies = Seq(
-  "org.scalatest" %% "scalatest" % "2.2.5" % "test",
+  "org.scalatest" %% "scalatest" % "3.0.0" % "test",
   dependOnDruid("druid-services") % "test",
   "org.apache.curator" % "curator-test" % curatorVersion % "test" exclude("log4j", "log4j") force(),
   "com.sun.jersey" % "jersey-servlet" % "1.17.1" % "test" force(),
@@ -195,7 +195,8 @@ lazy val commonSettings = Seq(
 
   publishMavenStyle := true,
 
-  publishTo := Some("releases" at "https://oss.sonatype.org/service/local/staging/deploy/maven2/"),
+  publishTo := Some("Artifactory Realm" at "https://artifactory.pubnative.io/artifactory/libs-release-local"),
+  credentials += Credentials(new File("credentials.properties")),
 
   pomIncludeRepository := { _ => false },
 

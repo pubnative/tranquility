@@ -40,10 +40,10 @@ import io.druid.data.input.impl.CSVParseSpec
 import io.druid.data.input.impl.DimensionsSpec
 import io.druid.data.input.impl.TimestampSpec
 import org.scalatest.FunSuite
-import org.scalatest.ShouldMatchers
+import org.scalatest.Matchers
 import scala.collection.JavaConverters._
 
-class TranquilityServletTest extends FunSuite with ShouldMatchers
+class TranquilityServletTest extends FunSuite with Matchers
 {
   test("Hello world") {
     val events = withBeams { beams =>

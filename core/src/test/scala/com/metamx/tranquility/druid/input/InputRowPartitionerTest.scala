@@ -28,10 +28,10 @@ import io.druid.data.input.impl.TimestampSpec
 import io.druid.granularity.QueryGranularities
 import org.joda.time.DateTime
 import org.scalatest.FunSuite
-import org.scalatest.ShouldMatchers
+import org.scalatest.Matchers
 import scala.collection.JavaConverters._
 
-class InputRowPartitionerTest extends FunSuite with ShouldMatchers
+class InputRowPartitionerTest extends FunSuite with Matchers
 {
   val row = new MapBasedInputRow(
     new DateTime("2000"),
